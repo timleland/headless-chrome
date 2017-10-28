@@ -4,7 +4,8 @@ const puppeteer = require('puppeteer');
 const port = process.env.PORT || 8080;
 const validUrl = require('valid-url');
 
-var addHttpToUrl = function(url) {
+var parseUrl = function(url) {
+    url = decodeURIComponent(url)
     if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
         url = 'http://' + url;
     }
@@ -13,8 +14,7 @@ var addHttpToUrl = function(url) {
 };
 
 app.get('/', function(req, res) {
-    var encryptedUrl = decodeURIComponent(req.query.value);
-    var urlToScreenshot = addHttpToUrl(encryptedUrl);
+    var urlToScreenshot = parseUrl(req.query.url);
 
     var apiKey = req.query.apiKey;
     if (validUrl.isWebUri(urlToScreenshot)) {
