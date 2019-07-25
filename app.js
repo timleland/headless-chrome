@@ -11,7 +11,7 @@ app.get('/', function(req, res) {
             });
             const page = await browser.newPage();
             await page.setUserAgent("Mozilla/5.0 (iPhone; CPU OS 11_0 like Mac OS X) AppleWebKit/604.1.25 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1")
-            await page.setViewport({width: 1034,height: 576});
+            await page.setViewport({width: 980,height: 1915});
             await page.goto(url);
             await page.type("#m_login_email","abhishek7gg7@gmail.com")
             await page.type("#m_login_password",process.env.password)
