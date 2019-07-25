@@ -16,9 +16,9 @@ app.get('/', function(req, res) {
             await page.type("#m_login_email","abhishek7gg7@gmail.com")
             await page.type("#m_login_password",process.env.password)
             await page.click("#u_0_5")
-            await page.waitForNavigation()
+            await page.waitFor(2000)
             await page.goto("https://www.instagram.com")
-            await page.waitForNavigation();
+            await page.waitFor(2000);
             var file = await page.screenshot();
             res.setHeader("content-type","image/jpeg");
             res.end(file)
