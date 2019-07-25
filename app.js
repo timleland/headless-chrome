@@ -12,9 +12,10 @@ app.get('/', function(req, res) {
             await page.setViewport({width: 1034,height: 576});
             await page.goto('https://www.instagram.com/accounts/login/');
             await page.waitForSelector('input[name="username"]');
-            await page.type('input[name="username"]', 'username');
-            await page.type('input[name="password"]', 'password');
+            await page.type('input[name="username"]', 'sasta_abbie');
+            await page.type('input[name="password"]', process.env.password);
             await page.click('button[type="submit"]');
+            await page.waitForNavigation()
             var file = await page.screenshot();
             res.setHeader("content-type","image/jpeg");
             res.end(file)
