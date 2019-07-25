@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
   }
   else {return;}
   })
- await page.waitForNavigation();
+ //await page.waitForNavigation();
             var file = await page.screenshot();
             res.setHeader("content-type","image/jpeg");
             res.end(file)
