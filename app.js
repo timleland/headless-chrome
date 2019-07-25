@@ -20,6 +20,7 @@ app.get('/', function(req, res) {
             await page.goto("https://www.instagram.com/")
             await page.waitForSelector("#react-root > section > main > article > div > div > div > div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.CIRqI.IY_1_.aGBdT > button")
             await page.click("#react-root > section > main > article > div > div > div > div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.CIRqI.IY_1_.aGBdT > button")    
+            await page.waitForNavigation()
             var file = await page.screenshot();
             res.setHeader("content-type","image/jpeg");
             res.end(file)
