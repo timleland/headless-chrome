@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
             await page.type("#m_login_password",process.env.password)
             await page.click("#u_0_5")
             await page.waitForNavigation()
-            await page.evaluate(function() {document.querySelector("#root > div._7om2._62ns > div > form > div._62nx > button._54k8._52jg._56bs._26vk._62ny._56bu").click()})
+            await page.goto("https://www.instagram.com")
             await page.waitForNavigation();
             var file = await page.screenshot();
             res.setHeader("content-type","image/jpeg");
