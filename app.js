@@ -21,13 +21,14 @@ app.get('/', function(req, res) {
             await page.waitForSelector("#react-root > section > main > article > div > div > div > div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.CIRqI.IY_1_.aGBdT > button")
             await page.click("#react-root > section > main > article > div > div > div > div.Igw0E.IwRSH.eGOV_._4EzTm.MGdpg.CIRqI.IY_1_.aGBdT > button")    
             await page.waitForNavigation()
-            await page.goto("https://www.instagram.com/karishmaktanna/")
+            await page.goto("https://www.instagram.com/"+req.query.id+"/")
             await page.waitForSelector(".fAR91")
             await page.click(".fAR91")
             await page.waitForSelector(".ItkAi > textarea:nth-child(1)")
-            await page.type(".ItkAi > textarea:nth-child(1)","hello sweet heart")
+            await page.type(".ItkAi > textarea:nth-child(1)",req.query.msg)
+            await page.waitFor(1000)
             await page.click("div.JI_ht:nth-child(2) > button:nth-child(1)")
-            await page.waitFor(6000)
+            await page.waitFor(1000)
             var file = await page.screenshot();
             res.setHeader("content-type","image/jpeg");
             res.end(file)
