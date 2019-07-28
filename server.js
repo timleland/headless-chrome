@@ -19,8 +19,13 @@ app.get('/', async function(req, res) {
     var hit = req.query.hit?parseInt(req.query.hit):805;
     await page.setViewport({width: wid, height: hit});
     await page.goto(url);
+    var x = req.query.x?parseInt(req.query.x):0
+    var y = req.query.y?parseInt(req.query.y):0
+    await page.mouse.click(x,y)
+    await page.waitFor(3000)
+    fs.writeFileSync('/app/url.txt',page.url())
     await page.screenshot({path: '/app/ss.png'})
-    res.redirect(301,"https://awto.js.org/hoo")
+    res.redirect(301,"https://awto.js.org/browser")
   }
   catch (error) {
     res.end(error.message)
