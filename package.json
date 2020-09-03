@@ -8,7 +8,7 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.16.2",
-    "puppeteer": "^0.12.0",
+    "puppeteer": "^1.13.0",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {},
