@@ -5,7 +5,7 @@ const port = process.env.PORT || 8080;
 const validUrl = require('valid-url');
 
 var parseUrl = function(url) {
-    url = decodeURIComponent(url)
+    url = decodeURIComponent(url);
     if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
         url = 'http://' + url;
     }
@@ -39,6 +39,10 @@ app.get('/', function(req, res) {
 
 });
 
+app.get('/health', function(req, res) {
+  res.send('ok');
+});
+
 app.listen(port, function() {
-    console.log('App listening on port ' + port)
-})
+  console.log('App listening on port ' + port);
+});
